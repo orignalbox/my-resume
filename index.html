@@ -1,1 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaibhav Tiwari - Student</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600&family=Reddit+Sans:wght@600&display=swap" rel="stylesheet">
 
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-primary: #FFFFFF;
+            --text-secondary: #ABABAB;
+            --border-color: #383838;
+            --font-main: "Schibsted Grotesk", sans-serif;
+            --font-accent: "Reddit Sans", sans-serif;
+        }
+
+        /* --- Global Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        h1, h2, h3, h4, p, ul, li {
+            line-height: 1.4;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- Main Layout --- */
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 20px 30px 10px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 160px;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 20px;
+        }
+
+        .left-column {
+            flex: 1 0 0;
+            max-width: 368px;
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+            padding-right: 10px;
+        }
+
+        .right-column {
+            flex: 2 0 0;
+            padding-left: 20px;
+        }
+
+        /* --- Header & Typography --- */
+        .name-title {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.48px;
+        }
+        .name-title .title {
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        .nav-link {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.48px;
+            transition: opacity 0.2s ease;
+        }
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        /* --- Left Column: Intro & Contacts --- */
+        .intro-text {
+            border-top: 1px solid var(--border-color);
+            padding: 30px 0 40px 6px;
+            font-size: 16px;
+            letter-spacing: -0.16px;
+        }
+
+        .contact-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 6px;
+            border-top: 0.5px solid var(--border-color);
+            transition: background-color 0.2s ease;
+        }
+        .contact-link:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .contact-link p {
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: -0.12px;
+        }
+        .contact-link .arrow {
+            font-family: var(--font-accent);
+            font-size: 10px;
+        }
+
+        /* --- Right Column: Sections --- */
+        .content-section {
+            border-top: 1px solid var(--border-color);
+            padding: 30px 0 80px 0;
+        }
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: -0.12px;
+            margin-bottom: 37px;
+        }
+        
+        .project-entry, .education-entry {
+            display: flex;
+            gap: 30px;
+            padding-top: 20px;
+        }
+        .project-details {
+            flex-basis: 300px; /* Aligns with skill columns */
+        }
+        .project-description {
+            flex: 1;
+        }
+        .project-title {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: -0.15px;
+            margin-bottom: 12px;
+        }
+        .project-meta {
+            font-size: 15px;
+            color: var(--text-secondary);
+            letter-spacing: -0.15px;
+        }
+        .project-meta p {
+            margin-bottom: 2px;
+        }
+        .project-description ul {
+            padding-left: 22.5px;
+        }
+        .project-description li {
+            position: relative;
+            margin-bottom: 8px;
+            font-family: var(--font-accent);
+            font-size: 16px;
+            letter-spacing: -0.08px;
+            line-height: 1.5;
+        }
+        .project-description li::before {
+            content: "•";
+            position: absolute;
+            left: -22.5px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 37px;
+            padding-top: 20px;
+        }
+
+        .skill-category h4 {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 18.5px;
+        }
+        .skill-category ul li {
+            margin-bottom: 5px;
+        }
+        
+        .education-degree {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        /* --- Footer --- */
+        footer {
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 20px 0;
+            height: 400px;
+        }
+        .footer-link {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.48px;
+            transition: opacity 0.2s ease;
+        }
+        .footer-link:hover {
+            opacity: 0.7;
+        }
+        .footer-top-link {
+            opacity: 0.5;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 800px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .left-column {
+                position: static;
+                max-width: 100%;
+                padding-right: 0;
+            }
+            .right-column {
+                padding-left: 0;
+            }
+            header {
+                padding-bottom: 80px;
+            }
+            .project-entry {
+                flex-direction: column;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .name-title, .nav-link, .footer-link {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="name-title">
+                <p>Vaibhav Tiwari,</p>
+                <p class="title">Student</p>
+            </div>
+            <a href="about.html" class="nav-link">About</a>
+        </header>
+
+        <main class="main-content">
+            <div class="left-column">
+                <div class="intro-text">
+                    <p>A  Computer Science student currently exploring the vast domains of technology.</p>
+                </div>
+                <a href="mailto:tiwarivaibhav3672@gmail.com" class="contact-link">
+                    <p>tiwarivaibhav3672@gmail.com</p>
+                    <span class="arrow">↗</span>
+                </a>
+                <a href="tel:+919064132688" class="contact-link">
+                    <p>+91 9064132688</p>
+                    <span class="arrow">↗</span>
+                </a>
+                <a href="https://www.linkedin.com/in/orignalbox/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <p>LinkedIn</p>
+                    <span class="arrow">↗</span>
+                </a>
+                <a href="https://github.com/orignalbox" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <p>GitHub</p>
+                    <span class="arrow">↗</span>
+                </a>
+            </div>
+
+            <div class="right-column">
+                <section class="content-section" id="projects">
+                    <h2 class="section-title">Projects</h2>
+                    
+                    <!-- PROJECT 1: EDIT HERE -->
+                    <div class="project-entry">
+                        <div class="project-details">
+                            <h3 class="project-title"></h3>
+                            <div class="project-meta">
+                                <p></p>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="project-description">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- END PROJECT 1 -->
+
+                    <!-- PROJECT 2: EDIT HERE -->
+                    <div class="project-entry">
+                        <div class="project-details">
+                            <h3 class="project-title"></h3>
+                            <div class="project-meta">
+                                <p></p>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="project-description">
+                             <ul>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- END PROJECT 2 -->
+
+                    <!-- PROJECT 3: EDIT HERE -->
+                    <div class="project-entry">
+                        <div class="project-details">
+                            <h3 class="project-title"></h3>
+                            <div class="project-meta">
+                                <p></p>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="project-description">
+                             <ul>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- END PROJECT 3 -->
+                </section>
+
+                <section class="content-section" id="skills">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Languages</h4>
+                            <ul>
+                                <li>Python</li>
+                                <li>C++</li>
+                                <li>Shell Scripting</li>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Frameworks/Libraries</h4>
+                            <ul>
+                                <li>Pandas</li>
+                                <li>Numpy</li>
+                                <li>Langchain</li>
+                                <li>Manim</li>
+                                <li>FFmpeg</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Developer Tools</h4>
+                            <ul>
+                                <li>Git</li>
+                                <li>Docker</li>
+                                <li>GNU / Linux</li>
+                                <li>Vim / Neovim</li>
+                                <li>Figma</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section" id="education">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-entry">
+                        <div class="project-details">
+                           <h3 class="project-title">VIT Bhopal University</h3>
+                        </div>
+                        <div class="project-description">
+                           <p class="education-degree">Bachelor of Technology in Computer Science</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+      <div class="container">
+          <a href="mailto:tiwarivaibhav3672@gmail.com" class="footer-link">Contact me</a>
+          <a id="to-top" class="footer-link footer-top-link">Top ↑</a>
+      </div>
+    </footer>
+    
+    <script>
+        document.getElementById('to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
